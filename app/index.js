@@ -29,6 +29,10 @@ app.get("/api/whoami",(req,res) => {
             })
 })
 
+app.get("/api/", (req, res) => {
+  const date = new Date();
+  res.json({ utc: date.toUTCString(), unix: Number(date) });
+});
 
 app.get("/api/:date",(req,res) => {
   var date = req.params.date;
